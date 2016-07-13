@@ -1,0 +1,24 @@
+<%= form_for @game do |f| %>
+  <div class="form-group">
+    <%= f.label :player_1_id, :class => 'control-label' %>
+    <%= f.number_field :player_1_id, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :player_2_id, :class => 'control-label' %>
+    <%= f.number_field :player_2_id, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :player_1_score, :class => 'control-label' %>
+    <%= f.number_field :player_1_score, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :player_2_score, :class => 'control-label' %>
+    <%= f.number_field :player_2_score, :class => 'form-control' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                games_path, :class => 'btn' %>
+  </div>
+<% end %>
