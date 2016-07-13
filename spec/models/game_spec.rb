@@ -17,6 +17,11 @@ RSpec.describe Game, type: :model do
        expect(game.winner).to eq game.player_1
      end
 
+     it "returns nil if tied" do
+       game = FactoryGirl.create(:game, player_1_score: 12, player_2_score: 12)
+       expect(game.winner).to eq nil
+     end
+
   end
 
 end

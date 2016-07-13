@@ -11,6 +11,11 @@ class Game < ActiveRecord::Base
     belongs_to :player_2, class_name: 'Player', foreign_key: 'player_2_id', required: true
 
     def winner
+      return nil if tie_game?
       (player_1_score > player_2_score) ? player_1 : player_2
+    end
+
+    def tie_game?
+      player_1_score == player_2_score
     end
 end
