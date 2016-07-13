@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-  resources :games, except: [:destroy]
-  resources :players, except: [:destroy]
+  resources :games, :players
 end

@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
-
+  after_save :process_score
+  
   #TODO move away from hardcoding players 1 and 2
   #TODO Use a join table like GamePlayer to relate player and game
 
@@ -39,6 +40,10 @@ class Game < ActiveRecord::Base
       if player_1_id == player_2_id
         errors.add(:player_1_id, "Cannot use same player twice")
       end
+    end
+
+    def process_score
+      GameRatingsCalculator.new.score_game(self)
     end
 
 end
