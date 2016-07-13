@@ -1,5 +1,8 @@
 class Game < ActiveRecord::Base
 
+  #TODO move away from hardcoding players 1 and 2
+  #TODO Use a join table like GamePlayer to relate player and game
+
   [:player_1_score, :player_2_score].each do |attribute|
 
     validates attribute, presence: true
