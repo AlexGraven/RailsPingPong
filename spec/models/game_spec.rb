@@ -18,7 +18,7 @@ RSpec.describe Game, type: :model do
      end
 
      it "returns nil if tied" do
-       game = FactoryGirl.create(:game, player_1_score: 12, player_2_score: 12)
+       game = FactoryGirl.create(:game, :tied)
        expect(game.winner).to eq nil
      end
 
@@ -27,7 +27,7 @@ RSpec.describe Game, type: :model do
   describe 'Tie game' do
 
     it 'returns true if tied' do
-      game = FactoryGirl.create(:game, player_1_score: 12, player_2_score: 12)
+      game = FactoryGirl.create(:game, :tied)
       expect(game.tie_game?).to be true
     end
 
