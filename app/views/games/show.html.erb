@@ -4,10 +4,10 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:player_1_id) %>:</strong></dt>
-  <dd><%= @game.player_1_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:player_2_id) %>:</strong></dt>
-  <dd><%= @game.player_2_id %></dd>
+  <dt><strong>Player 1:</strong></dt>
+  <dd><%= @game.player_1.name %></dd>
+  <dt><strong>Player 2:</strong></dt>
+  <dd><%= @game.player_2.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:player_1_score) %>:</strong></dt>
   <dd><%= @game.player_1_score %></dd>
   <dt><strong><%= model_class.human_attribute_name(:player_2_score) %>:</strong></dt>
