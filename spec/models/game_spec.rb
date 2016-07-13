@@ -10,4 +10,13 @@ RSpec.describe Game, type: :model do
   it {should validate_presence_of(:player_2_score)}
   it {should validate_numericality_of(:player_2_score)}
 
+  describe 'Game winner' do
+
+     it "returns winner" do
+       game = FactoryGirl.create(:game)
+       expect(game.winner).to eq game.player_1
+     end
+
+  end
+
 end
