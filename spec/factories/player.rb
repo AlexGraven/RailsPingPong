@@ -13,4 +13,8 @@ FactoryGirl.define do
   trait :complete_failure do
     grade 0
   end
+
+  trait :with_invalid_email do
+    email 'ha'
+  end
 end

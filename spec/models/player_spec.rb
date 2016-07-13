@@ -10,4 +10,13 @@ RSpec.describe Player, type: :model do
   it { should validate_inclusion_of(:hand)
                                   .in_array(['Right', 'Left'])}
 
+  it 'approves valid email' do
+    expect(FactoryGirl.create(:player)).to be_valid
+  end
+
+  it 'rejects invalid email' do
+    expect(FactoryGirl.build(:player, :with_invalid_email).valid?).to be false
+  end
+
+
 end

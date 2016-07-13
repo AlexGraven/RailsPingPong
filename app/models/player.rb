@@ -9,5 +9,6 @@ class Player < ActiveRecord::Base
   validates :hand, inclusion: { in: VALID_HANDS,
     message: "%{value} is not a valid hand" }
   validates :grade, numericality: { only_integer: true }
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
 end
