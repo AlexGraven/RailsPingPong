@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:player_1_id) %></th>
-      <th><%= model_class.human_attribute_name(:player_2_id) %></th>
+      <th>Player 1</th>
+      <th>Player 2</th>
       <th><%= model_class.human_attribute_name(:player_1_score) %></th>
       <th><%= model_class.human_attribute_name(:player_2_score) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -18,8 +18,12 @@
     <% @games.each do |game| %>
       <tr>
         <td><%= link_to game.id, game_path(game) %></td>
-        <td><%= game.player_1_id %></td>
-        <td><%= game.player_2_id %></td>
+        <td class="<%='winner' if game.player_1_winner?%>">
+            <%= game.player_1.name %>
+        </td>
+        <td class="<%='winner' if game.player_2_winner?%>">
+            <%= game.player_2.name %>
+        </td>
         <td><%= game.player_1_score %></td>
         <td><%= game.player_2_score %></td>
         <td><%=l game.created_at %></td>

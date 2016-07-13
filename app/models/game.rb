@@ -23,10 +23,12 @@ class Game < ActiveRecord::Base
     end
 
     def player_1_winner?
+      return false if tie_game?
       (player_1_score > player_2_score)
     end
 
     def player_2_winner?
+      return false if tie_game?
       !player_1_winner?
     end
 
