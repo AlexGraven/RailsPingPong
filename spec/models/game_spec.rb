@@ -68,4 +68,11 @@ RSpec.describe Game, type: :model do
     end
   end
 
+  describe 'Business logic' do
+    it 'disallows same player twice' do
+      game = FactoryGirl.build(:game, :players_are_same)
+      expect(game.valid?).to be false
+    end
+  end
+
 end

@@ -8,8 +8,10 @@ class Game < ActiveRecord::Base
     validates attribute, numericality: {only_integer: true}
   end
 
-    belongs_to :player_1, class_name: 'Player', foreign_key: 'player_1_id', required: true
-    belongs_to :player_2, class_name: 'Player', foreign_key: 'player_2_id', required: true
+  validate :check_players_are_not_the_same
+
+  belongs_to :player_1, class_name: 'Player', foreign_key: 'player_1_id', required: true
+  belongs_to :player_2, class_name: 'Player', foreign_key: 'player_2_id', required: true
 
     def winner
       return nil if tie_game?
@@ -27,8 +29,16 @@ class Game < ActiveRecord::Base
 
     def player_2_winner?
       return false if tie_game?
-      !player_1_winner?
+      not player_1_winner?
     end
 
+  private
+
+    def check_players_are_not_the_same
+      # a rare example of me expanding to three lines if one would be too long
+      if player_1_id == player_2_id
+        errors.add(:player_1_id, "Cannot use same player twice")
+      end
+    end
 
 end

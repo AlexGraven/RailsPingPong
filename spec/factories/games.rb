@@ -23,4 +23,10 @@ FactoryGirl.define do
   trait :complete_failure_p1 do
     association :player_1, factory: [:player, :complete_failure]
   end
+
+  trait :players_are_same do
+    after(:build, :create) do |game|
+      game.player_2 = game.player_1
+    end
+  end
 end
