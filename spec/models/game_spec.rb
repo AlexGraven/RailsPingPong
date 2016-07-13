@@ -24,4 +24,18 @@ RSpec.describe Game, type: :model do
 
   end
 
+  describe 'Tie game' do
+
+    it 'returns true if tied' do
+      game = FactoryGirl.create(:game, player_1_score: 12, player_2_score: 12)
+      expect(game.tie_game?).to be true
+    end
+
+    it 'returns false if there is a winner' do
+      game = FactoryGirl.create(:game)
+      expect(game.tie_game?).to be false
+    end
+
+  end
+
 end
