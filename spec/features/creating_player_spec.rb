@@ -5,7 +5,9 @@ require "rails_helper"
 #this would be thoroughly fleshed out after a tasking meeting normally
 
 RSpec.feature "Creating a player", type: :feature do
-  scenario "User creates a new player" do
+
+  scenario "User creates a new player", js: true do
+    
     visit "/players/new"
 
     fill_in "Name", with: "George Jungle"

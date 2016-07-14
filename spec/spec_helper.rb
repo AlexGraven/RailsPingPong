@@ -1,9 +1,11 @@
 require 'factory_girl'
 require 'simplecov'
+require 'capybara'
 
 SimpleCov.start
 
 RSpec.configure do |config|
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -15,3 +17,9 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
 end
+
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
+
+Capybara.javascript_driver = :chrome
