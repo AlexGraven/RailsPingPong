@@ -110,7 +110,8 @@ RSpec.describe PlayersController, type: :controller do
         player = Player.create! valid_attributes
         put :update, {id: player.to_param, player: new_attributes}, session: valid_session
         player.reload
-        skip("Add assertions for updated state")
+        expect(player.name).to eq new_attributes['name']
+
       end
 
       it "assigns the requested player as @player" do

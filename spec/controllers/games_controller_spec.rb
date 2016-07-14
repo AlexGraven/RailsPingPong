@@ -119,7 +119,7 @@ RSpec.describe GamesController, type: :controller do
         game = Game.create! valid_attributes
         put :update, {id: game.to_param, game: new_attributes}, session: valid_session
         game.reload
-        skip("Add assertions for updated state")
+        expect(game.player_2_score).to eq new_attributes['player_2_score']
       end
 
       it "assigns the requested game as @game" do

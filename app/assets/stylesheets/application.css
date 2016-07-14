@@ -15,6 +15,5 @@
  *= require cyborg/loader
  *= require cyborg/bootswatch
  *= require rails_bootstrap_forms
+ *= require game
  */
-
- @import 'game';
