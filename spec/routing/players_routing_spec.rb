@@ -31,9 +31,5 @@ RSpec.describe PlayersController, type: :routing do
       expect(patch: "/players/1").to route_to("players#update", id: "1")
     end
 
-    it "routes to #destroy" do
-      expect(delete: "/players/1").to route_to("players#destroy", id: "1")
-    end
-
   end
 end

@@ -142,19 +142,4 @@ RSpec.describe PlayersController, type: :controller do
     end
   end
 
-  describe "DELETE #destroy" do
-    it "destroys the requested player" do
-      player = Player.create! valid_attributes
-      expect {
-        delete :destroy, {id: player.to_param}, session: valid_session
-      }.to change(Player, :count).by(-1)
-    end
-
-    it "redirects to the players list" do
-      player = Player.create! valid_attributes
-      delete :destroy, {id: player.to_param}, session: valid_session
-      expect(response).to redirect_to(players_url)
-    end
-  end
-
 end
