@@ -18,5 +18,4 @@ RSpec.describe Player, type: :model do
     expect(FactoryGirl.build(:player, :with_invalid_email).valid?).to be false
   end
 
-
 end

@@ -52,6 +52,7 @@ end
 group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'database_cleaner'
   gem 'simplecov', require: false
   gem 'selenium-webdriver'
   gem "chromedriver-helper"

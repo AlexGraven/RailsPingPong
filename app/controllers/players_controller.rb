@@ -41,14 +41,6 @@ def update
   end
 end
 
-def destroy
-  @player.destroy
-  respond_to do |format|
-    format.html { redirect_to players_url, notice: 'Player was successfully destroyed.' }
-    format.json { head :no_content }
-  end
-end
-
 private
   def set_player
     @player = Player.find(params[:id])
